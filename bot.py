@@ -113,13 +113,13 @@ class MyBot(discord.Client):
 
                     # create string to send back
                     string_to_send = """Statistics for {0}:
-                    
+
                         new cases: {1},
                         total cases: {2}
-                        
+
                         new deaths: {3}
                         total deaths: {4}
-                        
+
                         newly recovered: {5}
                         total recovered: {6}
                     """.format(
