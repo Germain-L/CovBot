@@ -33,6 +33,7 @@ class MyBot(discord.Client):
     async def on_ready(self):
         print('Logged on as {0}!'.format(self.user))
 
+
     @staticmethod
     async def on_message(message):
         # prefix used by bot to detect commands
@@ -111,24 +112,24 @@ class MyBot(discord.Client):
                     data_to_send["Country"] = data["Country"]
 
                     # create string to send back
-                    string_to_send = """Statistics for {6}:
+                    string_to_send = """Statistics for {0}:
                     
-                        new cases: {0},
-                        total cases: {1}
+                        new cases: {1},
+                        total cases: {2}
                         
-                        new deaths: {2}
-                        total deaths: {3}
+                        new deaths: {3}
+                        total deaths: {4}
                         
-                        newly recovered: {4}
-                        total recovered: {5}
+                        newly recovered: {5}
+                        total recovered: {6}
                     """.format(
+                        data_to_send["Country"],
                         data_to_send["new_confirmed"],
                         data_to_send["total_confirmed"],
                         data_to_send["new_deaths"],
                         data_to_send["total_deaths"],
                         data_to_send["new_recovered"],
                         data_to_send["total_recovered"],
-                        data_to_send["Country"]
                     )
 
                     # remove wacky indents from string
@@ -138,6 +139,19 @@ class MyBot(discord.Client):
 
                 else:
                     await message.channel.send("Error occurred: {0}".format(data["error"]))
+
+
+        elif args[0] == "help":
+            help_to_send = '''```Thanks for using CovBot
+
+            use `?` as a prefix to all your commands, such as `?help`
+
+            list of commands:
+            ∙ stats
+                ∙ alone → worldwide stats
+                ∙ followed by country code → country's stats
+            ```'''
+            await message.author.send(inspect.cleandoc(help_to_send))
 
 
 start()
