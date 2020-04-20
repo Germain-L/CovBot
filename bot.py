@@ -14,7 +14,7 @@ def start():
 
 def read_token() -> str:
     # keeps token secret from git
-    with open('./files/secret.json') as f:
+    with open('secret.json') as f:
         data = json.load(f)
         return data["token"]
 
