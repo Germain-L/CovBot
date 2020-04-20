@@ -138,3 +138,6 @@ class MyBot(discord.Client):
 
                 else:
                     await message.channel.send("Error occurred: {0}".format(data["error"]))
+
+
+start()
