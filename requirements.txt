@@ -6,7 +6,7 @@ Flask==1.1.2
 grab-screen==0.0.13
 idna==2.6
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 pyperclip==1.5.27
 requests==2.18.4
